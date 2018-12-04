@@ -2,7 +2,8 @@ import unittest
 
 from parameterized import parameterized
 
-from src.day3 import Piece, Fabric
+from src.day03.Fabric import Fabric
+from src.day03.Piece import Piece
 
 
 class WhenCreatePiece(unittest.TestCase):
@@ -42,12 +43,6 @@ class WhenCreatePiece(unittest.TestCase):
 
         self.assertEqual(True, piece1.overlaps(piece2))
         self.assertEqual(True, piece2.overlaps(piece1))
-
-    def test_that_piece_overlaps_with_another_piece_wtf(self):
-        piece1 = Piece("#1 @ 2,2: 1x1")
-        piece2 = Piece("#5 @ 0,0: 5x5")
-
-        self.assertEqual(True, piece1.overlaps(piece2))
 
     @parameterized.expand([
         ["#1 @ 1,2: 2x3", "#1 @ 0,0: 1x2"],
