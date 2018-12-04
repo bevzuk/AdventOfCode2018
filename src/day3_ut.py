@@ -5,8 +5,8 @@ from src.day3 import Piece, Fabric
 class WhenCreatePiece(unittest.TestCase):
     def test_that_it_populates_attributes(self):
         piece = Piece("#1 @ 906,735: 28x17")
-        self.assertEqual(906, piece.top_offset)
-        self.assertEqual(735, piece.left_offset)
+        self.assertEqual(906, piece.left_offset)
+        self.assertEqual(735, piece.top_offset)
         self.assertEqual(28, piece.width)
         self.assertEqual(17, piece.height)
 
@@ -29,6 +29,17 @@ class WhenClaimPiece(unittest.TestCase):
                          "....\n"
                          ".11.\n"
                          ".11.\n"
+                         "....\n", fabric.Area())
+
+    def test_that_fabric_counts_single_piece_2x2_asymmetrical(self):
+        piece = Piece("#1 @ 2,1: 2x2")
+        fabric = Fabric(4, 4)
+        fabric.Claim(piece)
+
+        self.assertEqual("\n"
+                         "....\n"
+                         "..11\n"
+                         "..11\n"
                          "....\n", fabric.Area())
 
     def test_that_fabric_counts_overlapping_pieces_2x2(self):

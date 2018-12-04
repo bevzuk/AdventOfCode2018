@@ -6,8 +6,8 @@ class Piece:
         split = s.split(' ')
 
         offset = split[2][:-1].split(',')
-        self._top_offset = int(offset[0])
-        self._left_offset = int(offset[1])
+        self._left_offset = int(offset[0])
+        self._top_offset = int(offset[1])
 
         size = split[3].split('x')
         self._width = int(size[0])
