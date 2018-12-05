@@ -21,9 +21,9 @@ def solve_part_1():
 
     print("1. Number of overlapping inches: ", fabric.overlapping_inches)
 
-    # out_file = open("day03.out.txt", "w")
-    # out_file.write(fabric.Area())
-    # out_file.close()
+    out_file = open("day03.out.txt", "w")
+    out_file.write(fabric.area())
+    out_file.close()
 
 
 def solve_part_2():

@@ -44,6 +44,18 @@ class Piece:
             if piece.contains(corner):
                 return True
 
+        if ((self.Corners[0][0] <= piece.Corners[0][0] < self.Corners[1][0]) or
+            (self.Corners[0][0] <= piece.Corners[1][0] < self.Corners[1][0])) and \
+                ((piece.Corners[0][1] <= self.Corners[0][1] < piece.Corners[3][1]) or
+                 (piece.Corners[0][1] <= self.Corners[3][1] < piece.Corners[3][1])):
+            return True
+
+        if ((piece.Corners[0][0] <= self.Corners[0][0] < piece.Corners[1][0]) or
+            (piece.Corners[0][0] <= self.Corners[1][0] < piece.Corners[1][0])) and \
+                ((self.Corners[0][1] <= piece.Corners[0][1] < self.Corners[3][1]) or
+                 (self.Corners[0][1] <= piece.Corners[3][1] < self.Corners[3][1])):
+            return True
+
         return False
 
     def contains(self, point):

@@ -36,6 +36,7 @@ class WhenCreatePiece(unittest.TestCase):
         ["#8 @ 0,0: 5x5", "#1 @ 4,4: 1x1"],
         ["#9 @ 0,0: 5x5", "#1 @ 4,0: 1x1"],
         ["#10 @ 0,0: 1x1", "#1 @ 0,0: 1x1"],
+        ["#11 @ 1,0: 1x3", "#1 @ 0,1: 3x1"],
     ])
     def test_that_piece_overlaps_with_another_piece(self, s1, s2):
         piece1 = Piece(s1)
@@ -44,15 +45,21 @@ class WhenCreatePiece(unittest.TestCase):
         self.assertEqual(True, piece1.overlaps(piece2))
         self.assertEqual(True, piece2.overlaps(piece1))
 
+    def test_that_piece_does_not_overlaps_with_another_piece_wtf(self):
+        piece1 = Piece("#1 @ 1,2: 2x3")
+        piece2 = Piece("#2 @ 1,0: 2x2")
+
+        self.assertEqual(False, piece1.overlaps(piece2))
+
     @parameterized.expand([
         ["#1 @ 1,2: 2x3", "#1 @ 0,0: 1x2"],
         ["#2 @ 1,2: 2x3", "#2 @ 1,0: 2x2"],
-        ["#2 @ 1,2: 2x3", "#2 @ 3,0: 1x10"],
-        ["#2 @ 1,2: 2x3", "#2 @ 3,2: 2x3"],
-        ["#2 @ 1,2: 2x3", "#2 @ 3,5: 1x1"],
-        ["#2 @ 1,2: 2x3", "#2 @ 1,5: 10x10"],
-        ["#2 @ 1,2: 2x3", "#2 @ 0,5: 10x10"],
-        ["#2 @ 1,2: 2x3", "#2 @ 0,2: 1x3"],
+        ["#3 @ 1,2: 2x3", "#2 @ 3,0: 1x10"],
+        ["#4 @ 1,2: 2x3", "#2 @ 3,2: 2x3"],
+        ["#5 @ 1,2: 2x3", "#2 @ 3,5: 1x1"],
+        ["#6 @ 1,2: 2x3", "#2 @ 1,5: 10x10"],
+        ["#7 @ 1,2: 2x3", "#2 @ 0,5: 10x10"],
+        ["#8 @ 1,2: 2x3", "#2 @ 0,2: 1x3"],
     ])
     def test_that_piece_does_not_overlaps_with_another_piece(self, p1, p2):
         piece1 = Piece(p1)
