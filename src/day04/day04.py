@@ -2,9 +2,9 @@ from src.day04.Log import Log
 
 
 def task2(g):
-    guards = list(map(lambda x: x[2], g))
+    _guards = list(map(lambda x: x[2], g))
     data = list(
-        map(lambda x: (x.number, x.most_frequent_sleep_minute, x.minutes[x.most_frequent_sleep_minute]), guards))
+        map(lambda x: (x.number, x.most_frequent_sleep_minute, x.minutes[x.most_frequent_sleep_minute]), _guards))
     data.sort(key=lambda x: x[2], reverse=True)
     return data[0][0] * data[0][1]
 
