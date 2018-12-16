@@ -1,7 +1,17 @@
 class Node:
-    def __init__(self, name, child=[]):
+    def __init__(self, name):
         self.name = name
-        self.children = child
+        self.next = []
+        self.prev = []
 
-    def add_child(self, child):
-        self.children.append(child)
+    def add_next(self, _next):
+        self.next.append(_next)
+
+    def add_prev(self, _prev):
+        self.prev.append(_prev)
+
+    def __eq__(self, other):
+        return self.name == other.name
+
+    def __hash__(self):
+        return self.name.__hash__()
